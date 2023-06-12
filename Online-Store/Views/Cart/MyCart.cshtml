@@ -1,0 +1,33 @@
+﻿@model User
+@{
+    ViewData["Title"] = "MyCart";
+}
+
+<h1>MyCart</h1>
+<form method="post">
+    Seleziona l'utente': <select asp-for="Name" asp-items="ViewBag.users" name="id" ></select>
+    <input type="submit" value="Cerca" />
+</form>
+
+<table class="table table-bordered">
+  
+   
+    <tr>
+        <th>Prodotto</th>
+        <th>Prezzo</th>
+        <th>Quantità</th>
+        <th>Prezzo Totale</th>
+    </tr>
+    @foreach(var item in ViewBag.result)
+    {
+        
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.ProductPrice</td>
+            <td>@item.Amount</td>
+            <td>@item.TotalPrice</td>
+        </tr>
+    }
+    <h2>Total Price: @ViewBag.totalPrice</h2>
+
+</table>

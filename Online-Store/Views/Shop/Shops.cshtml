@@ -1,0 +1,48 @@
+﻿@model Shop
+@{
+    ViewData["Title"] = "Shops";
+}
+
+<h1>Prodotti disponibili nei negozi</h1>
+<form method="post" >
+   Seleziona il negozio: <select asp-for="Name" asp-items="@(ViewBag.shops as List<SelectListItem>)" name="shop"></select>
+    <input type="submit" value="Cerca" />
+</form>
+
+<form method="post" asp-action="AddToCart">
+<table class="table table-bordered">
+    <tr>
+        <th>Articolo</th>
+        <th>Prezzo</th>
+        <th>Quantità disponibile</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewBag.productsAvailable)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.ProductPrice</td>
+            <td>@item.AvailableAmount</td>
+                <td>
+                    <input type="hidden" name="id" value="@item.IDProduct" />
+                <select name="quantity" >
+                    @for (int i = 1; i < item.AvailableAmount; i++)
+                    {
+                        <option  value="@i">@i</option>
+                    }
+
+                </select>  
+                    <button type="submit">Aggiungi al carrello</button>
+            </td>
+           
+        </tr>
+    }
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <script type="text/javascript">
+            alert('@ViewBag.Message');
+        </script>
+    }
+</table>
+</form>

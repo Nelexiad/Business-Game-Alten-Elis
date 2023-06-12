@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "AddProductToShop";
+}
+
+<h1>Aggiungi un prodotto al negozio</h1>
+
+<div class="container">
+    <form method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Nome prodotto:
+                </div>
+                <div class="col">
+                    <select class="form-control" asp-items="ViewBag.products" name="idProduct"></select>
+                </div>
+            </div>
+        </div>
+        <div class="container ">
+            <div class="row">
+                <div class="col">
+                    Nome negozio:
+                </div>
+                <div class="col">
+                    <select class="form-control" asp-items="ViewBag.shops" name="idShop"></select>
+                </div>
+            </div>
+        </div>
+        <div class="container ">
+            <div class="row">
+                <div class="col">
+                    Quantità disponibile:
+                </div>
+                <div class="col">
+                   <input type="number" name="amount" />
+                </div>
+            </div>
+        </div>
+        <div class="container ">
+            <div class="row">
+
+                <div class="col">
+                    <input type="submit" value="AGGIUNGI" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
