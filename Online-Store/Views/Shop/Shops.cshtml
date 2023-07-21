@@ -3,6 +3,11 @@
     ViewData["Title"] = "Shops";
 }
 
+<form method="post">
+    <div>
+    Seleziona utente: <select asp-for="Name" asp-items="ViewBag.users" name="userId"></select>
+    </div>
+</form>
 <h1>Prodotti disponibili nei negozi</h1>
 <form method="post" >
    Seleziona il negozio: <select asp-for="Name" asp-items="@(ViewBag.shops as List<SelectListItem>)" name="shop"></select>

@@ -17,13 +17,16 @@ namespace Online_Store.Controllers
         }
         public IActionResult Shops()
         {
+            ViewBag.users = new SelectList(_context.Users,"IdUser","Name");
+           
+
             ViewBag.shops= _context.Shops.Select(t=> new SelectListItem
             {
                 Value=t.Name,
                 Text=t.Name
             }).ToList();
 
-            string shopsJson = JsonConvert.SerializeObject(ViewBag.Shops);
+            string shopsJson = JsonConvert.SerializeObject(ViewBag.shops);
             HttpContext.Session.SetString("Shops", shopsJson);
             ViewBag.productsAvailable = Enumerable.Empty<string>();
 
@@ -68,11 +71,11 @@ namespace Online_Store.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddToCart(int id, int quantity)
+        public IActionResult AddToCart(int userId,int id, int quantity)
         {
 
             var newElement = new CartProduct();
-            newElement.IdCart = 1;
+            newElement.IdCart = userId;
             newElement.IdProduct = id;
             newElement.Amout = quantity;
 
