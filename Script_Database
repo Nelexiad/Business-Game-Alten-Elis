@@ -1,0 +1,210 @@
+USE [ONLINE_STORE]
+GO
+/****** Object:  Table [dbo].[Available_Products]    Script Date: 12/06/2023 15:49:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Available_Products](
+	[ID_Available_Product] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Shop] [int] NOT NULL,
+	[ID_Product] [int] NOT NULL,
+	[Available_Amount] [int] NOT NULL,
+ CONSTRAINT [PK_Available_Products] PRIMARY KEY CLUSTERED 
+(
+	[ID_Available_Product] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Cart_Product]    Script Date: 12/06/2023 15:49:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cart_Product](
+	[ID_Cart_Product] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Cart] [int] NOT NULL,
+	[ID_Product] [int] NOT NULL,
+	[Amout] [int] NOT NULL,
+ CONSTRAINT [PK_Cart_Product] PRIMARY KEY CLUSTERED 
+(
+	[ID_Cart_Product] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Carts]    Script Date: 12/06/2023 15:49:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Carts](
+	[ID_Cart] [int] IDENTITY(1,1) NOT NULL,
+	[ID_User] [int] NOT NULL,
+ CONSTRAINT [PK_Carts] PRIMARY KEY CLUSTERED 
+(
+	[ID_Cart] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Products]    Script Date: 12/06/2023 15:49:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Products](
+	[ID_Product] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+	[Price] [money] NOT NULL,
+ CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
+(
+	[ID_Product] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Shops]    Script Date: 12/06/2023 15:49:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Shops](
+	[ID_Shop] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Shops] PRIMARY KEY CLUSTERED 
+(
+	[ID_Shop] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 12/06/2023 15:49:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[ID_User] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+	[Surname] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[ID_User] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Available_Products] ON 
+GO
+INSERT [dbo].[Available_Products] ([ID_Available_Product], [ID_Shop], [ID_Product], [Available_Amount]) VALUES (1, 1, 1, 27)
+GO
+INSERT [dbo].[Available_Products] ([ID_Available_Product], [ID_Shop], [ID_Product], [Available_Amount]) VALUES (2, 1, 2, 25)
+GO
+INSERT [dbo].[Available_Products] ([ID_Available_Product], [ID_Shop], [ID_Product], [Available_Amount]) VALUES (3, 1, 3, 50)
+GO
+INSERT [dbo].[Available_Products] ([ID_Available_Product], [ID_Shop], [ID_Product], [Available_Amount]) VALUES (6, 1, 4, 5)
+GO
+INSERT [dbo].[Available_Products] ([ID_Available_Product], [ID_Shop], [ID_Product], [Available_Amount]) VALUES (7, 2, 5, 25)
+GO
+INSERT [dbo].[Available_Products] ([ID_Available_Product], [ID_Shop], [ID_Product], [Available_Amount]) VALUES (8, 2, 6, 45)
+GO
+INSERT [dbo].[Available_Products] ([ID_Available_Product], [ID_Shop], [ID_Product], [Available_Amount]) VALUES (9, 2, 7, 150)
+GO
+INSERT [dbo].[Available_Products] ([ID_Available_Product], [ID_Shop], [ID_Product], [Available_Amount]) VALUES (10, 2, 8, 15)
+GO
+INSERT [dbo].[Available_Products] ([ID_Available_Product], [ID_Shop], [ID_Product], [Available_Amount]) VALUES (11, 2, 8, 15)
+GO
+SET IDENTITY_INSERT [dbo].[Available_Products] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Cart_Product] ON 
+GO
+INSERT [dbo].[Cart_Product] ([ID_Cart_Product], [ID_Cart], [ID_Product], [Amout]) VALUES (5, 1, 1, 3)
+GO
+INSERT [dbo].[Cart_Product] ([ID_Cart_Product], [ID_Cart], [ID_Product], [Amout]) VALUES (6, 1, 5, 1)
+GO
+SET IDENTITY_INSERT [dbo].[Cart_Product] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Carts] ON 
+GO
+INSERT [dbo].[Carts] ([ID_Cart], [ID_User]) VALUES (1, 1)
+GO
+SET IDENTITY_INSERT [dbo].[Carts] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Products] ON 
+GO
+INSERT [dbo].[Products] ([ID_Product], [Name], [Price]) VALUES (1, N'Diablo IV', 80.0000)
+GO
+INSERT [dbo].[Products] ([ID_Product], [Name], [Price]) VALUES (2, N'The Last of Us Chapter One', 30.0000)
+GO
+INSERT [dbo].[Products] ([ID_Product], [Name], [Price]) VALUES (3, N'The Last of Us Chapter Two', 60.0000)
+GO
+INSERT [dbo].[Products] ([ID_Product], [Name], [Price]) VALUES (4, N'The Binding of Isaac', 45.0000)
+GO
+INSERT [dbo].[Products] ([ID_Product], [Name], [Price]) VALUES (5, N'PlayStation 5', 550.0000)
+GO
+INSERT [dbo].[Products] ([ID_Product], [Name], [Price]) VALUES (6, N'PlayStation 5 Digital', 450.0000)
+GO
+INSERT [dbo].[Products] ([ID_Product], [Name], [Price]) VALUES (7, N'Nintendo Switch', 279.0000)
+GO
+INSERT [dbo].[Products] ([ID_Product], [Name], [Price]) VALUES (8, N'IPhone 14', 1399.0000)
+GO
+SET IDENTITY_INSERT [dbo].[Products] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Shops] ON 
+GO
+INSERT [dbo].[Shops] ([ID_Shop], [Name]) VALUES (1, N'GameStop')
+GO
+INSERT [dbo].[Shops] ([ID_Shop], [Name]) VALUES (2, N'UniEuro')
+GO
+SET IDENTITY_INSERT [dbo].[Shops] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Users] ON 
+GO
+INSERT [dbo].[Users] ([ID_User], [Name], [Surname]) VALUES (1, N'Daniele', N'D''Anna')
+GO
+INSERT [dbo].[Users] ([ID_User], [Name], [Surname]) VALUES (2, N'Giorgia', N'Scribani')
+GO
+SET IDENTITY_INSERT [dbo].[Users] OFF
+GO
+ALTER TABLE [dbo].[Available_Products]  WITH CHECK ADD  CONSTRAINT [FK_Available_Products_Product] FOREIGN KEY([ID_Product])
+REFERENCES [dbo].[Products] ([ID_Product])
+GO
+ALTER TABLE [dbo].[Available_Products] CHECK CONSTRAINT [FK_Available_Products_Product]
+GO
+ALTER TABLE [dbo].[Available_Products]  WITH CHECK ADD  CONSTRAINT [FK_Available_Products_Shop] FOREIGN KEY([ID_Shop])
+REFERENCES [dbo].[Shops] ([ID_Shop])
+GO
+ALTER TABLE [dbo].[Available_Products] CHECK CONSTRAINT [FK_Available_Products_Shop]
+GO
+ALTER TABLE [dbo].[Cart_Product]  WITH CHECK ADD  CONSTRAINT [FK_Cart_Cart] FOREIGN KEY([ID_Cart])
+REFERENCES [dbo].[Carts] ([ID_Cart])
+GO
+ALTER TABLE [dbo].[Cart_Product] CHECK CONSTRAINT [FK_Cart_Cart]
+GO
+ALTER TABLE [dbo].[Cart_Product]  WITH CHECK ADD  CONSTRAINT [FK_Cart_Product_Product_Product] FOREIGN KEY([ID_Product])
+REFERENCES [dbo].[Products] ([ID_Product])
+GO
+ALTER TABLE [dbo].[Cart_Product] CHECK CONSTRAINT [FK_Cart_Product_Product_Product]
+GO
+ALTER TABLE [dbo].[Carts]  WITH CHECK ADD  CONSTRAINT [FK_Cart_User] FOREIGN KEY([ID_User])
+REFERENCES [dbo].[Users] ([ID_User])
+GO
+ALTER TABLE [dbo].[Carts] CHECK CONSTRAINT [FK_Cart_User]
+GO
+/****** Object:  Trigger [dbo].[Delete_Product]    Script Date: 12/06/2023 15:49:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TRIGGER [dbo].[Delete_Product]
+	ON [dbo].[Available_Products]
+	AFTER  INSERT, UPDATE
+	AS
+	BEGIN
+	 IF EXISTS (SELECT 1 FROM inserted WHERE Available_Amount <= 0)
+    BEGIN
+        DELETE pd
+        FROM Available_Products pd
+        INNER JOIN inserted i ON pd.ID_Shop = i.ID_Shop AND pd.ID_Product = i.ID_Product
+        WHERE pd.Available_Amount <= 0;
+    END
+END;
+GO
+ALTER TABLE [dbo].[Available_Products] ENABLE TRIGGER [Delete_Product]
+GO
