@@ -60,6 +60,15 @@
         </nav>
     </header>
     <div class="container">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>Welcome, @User.Identity.Name! <a asp-controller="Account" asp-action="Logout">Logout</a></p>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login">Login</a>
+            <a asp-controller="Account" asp-action="Register">Register</a>
+        }
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

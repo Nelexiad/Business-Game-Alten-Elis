@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Online_Store.Models;
 
@@ -10,6 +11,17 @@ builder.Services.AddDbContext<ONLINE_STOREContext>(
 
 builder.Services.AddSession();
 
+// Add ASP.NET Core Identity configuration here
+builder.Services.AddDefaultIdentity<User>(options =>
+{
+    // Customize Identity settings if needed
+    
+    options.User.RequireUniqueEmail = true;
+    
+    
+})
+    .AddEntityFrameworkStores<ONLINE_STOREContext>()
+    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 

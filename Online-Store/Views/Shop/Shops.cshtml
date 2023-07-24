@@ -3,11 +3,7 @@
     ViewData["Title"] = "Shops";
 }
 
-<form method="post">
-    <div>
-    Seleziona utente: <select asp-for="Name" asp-items="ViewBag.users" name="userId"></select>
-    </div>
-</form>
+
 <h1>Prodotti disponibili nei negozi</h1>
 <form method="post" >
    Seleziona il negozio: <select asp-for="Name" asp-items="@(ViewBag.shops as List<SelectListItem>)" name="shop"></select>
@@ -30,7 +26,6 @@
             <td>@item.ProductPrice</td>
             <td>@item.AvailableAmount</td>
                 <td>
-                    <input type="hidden" name="id" value="@item.IDProduct" />
                 <select name="quantity" >
                     @for (int i = 1; i < item.AvailableAmount; i++)
                     {
@@ -38,7 +33,7 @@
                     }
 
                 </select>  
-                    <button type="submit">Aggiungi al carrello</button>
+                    <button type="submit" asp-route-id="@item.ProductId" asp-action="AddToCart">Aggiungi al carrello</button>
             </td>
            
         </tr>

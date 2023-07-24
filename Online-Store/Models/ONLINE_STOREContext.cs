@@ -33,6 +33,10 @@ namespace Online_Store.Models
 
                 entity.ToTable("Available_Products");
 
+                entity.HasIndex(e => e.IdProduct, "IX_Available_Products_ID_Product");
+
+                entity.HasIndex(e => e.IdShop, "IX_Available_Products_ID_Shop");
+
                 entity.Property(e => e.IdAvailableProduct).HasColumnName("ID_Available_Product");
 
                 entity.Property(e => e.AvailableAmount).HasColumnName("Available_Amount");
@@ -58,6 +62,8 @@ namespace Online_Store.Models
             {
                 entity.HasKey(e => e.IdCart);
 
+                entity.HasIndex(e => e.IdUser, "IX_Carts_ID_User");
+
                 entity.Property(e => e.IdCart).HasColumnName("ID_Cart");
 
                 entity.Property(e => e.IdUser).HasColumnName("ID_User");
@@ -74,6 +80,10 @@ namespace Online_Store.Models
                 entity.HasKey(e => e.IdCartProduct);
 
                 entity.ToTable("Cart_Product");
+
+                entity.HasIndex(e => e.IdCart, "IX_Cart_Product_ID_Cart");
+
+                entity.HasIndex(e => e.IdProduct, "IX_Cart_Product_ID_Product");
 
                 entity.Property(e => e.IdCartProduct).HasColumnName("ID_Cart_Product");
 
